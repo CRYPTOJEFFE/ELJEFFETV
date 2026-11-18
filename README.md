@@ -65,6 +65,13 @@ Kodi is created by users for users and **we welcome every contribution**. There 
 ## Building
 Kodi uses CMake as its building system but instructions are highly dependent on your operating system and target platform. Fortunately **[we've got you covered](docs/README.md)**.
 
+## ELJEFFETV NAS ROM catalog
+
+The [NAS ROM catalog utility](tools/nas-rom/README.md) verifies an existing ROM
+share against selected DAT metadata from `videogame-archive/dat-catalog`. It
+provides read-only checksum audits, local HTML/JSON/CSV reports, and Docker
+Compose or native Python setup. It runs independently of the Kodi build.
+
 ## Acknowledgements
 Kodi couldn't exist without
 

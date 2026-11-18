@@ -1,0 +1,7 @@
+*
+!Dockerfile
+!romcatalog/
+!romcatalog/**
+romcatalog/**/__pycache__/
+romcatalog/**/*.pyc
+romcatalog/**/*.pyo

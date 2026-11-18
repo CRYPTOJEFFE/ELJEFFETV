@@ -1,0 +1,44 @@
+name: eljeffetv-rom-catalog
+
+services:
+  rom-catalog:
+    build:
+      context: .
+      args:
+        APP_UID: "${NAS_UID:-1000}"
+        APP_GID: "${NAS_GID:-1000}"
+    user: "${NAS_UID:-1000}:${NAS_GID:-1000}"
+    command: ["run", "--config", "/config/config.json"]
+    restart: "no"
+    read_only: true
+    cap_drop: ["ALL"]
+    security_opt: ["no-new-privileges:true"]
+    pids_limit: 64
+    cpus: 1.0
+    mem_limit: 1g
+    tmpfs:
+      - /tmp:rw,noexec,nosuid,size=64m
+    volumes:
+      - type: bind
+        source: "${ROM_ROOT:?Set ROM_ROOT to the existing absolute NAS ROM directory}"
+        target: /roms
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: "${CONFIG_FILE:-./config.json}"
+        target: /config/config.json
+        read_only: true
+        bind:
+          create_host_path: false
+      - type: bind
+        source: "${REPORT_DIR:?Set REPORT_DIR to an existing writable directory outside ROM_ROOT}"
+        target: /reports
+        bind:
+          create_host_path: false
+      - type: volume
+        source: catalog-state
+        target: /state
+
+volumes:
+  catalog-state:
