@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "cache_dir": "./work/catalog",
+  "state_dir": "./work/cache",
+  "report_dir": "./reports",
+  "source": {
+    "repository": "videogame-archive/dat-catalog",
+    "ref": "843a568f31ccd7847a3cea1f710d351119a52960"
+  },
+  "mappings": [
+    {
+      "name": "gameboy",
+      "rom_dir": "/REPLACE_WITH_EXISTING_MOUNTED_PLATFORM_DIRECTORY",
+      "provider": "No-Intro",
+      "dat_name": "Nintendo - Game Boy (20230318-005235).dat",
+      "enabled": false
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+/config.json
+/config.local.json
+/.env
+/reports/
+/state/
+__pycache__/
+*.pyc
+*.sqlite3*
